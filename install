@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+LNCOMMAND="ln -vs"
+if [ "$(type -t lnsafe)" = "function" ]; then
+    LNCOMMAND="lnsafe"
+else
+    echo "local lnsafe impl used."
+fi
+
+CPCOMMAND="cp -v"
+if [ "$(type -t cpsafe)" = "function" ]; then
+    CPCOMMAND="cpsafe"
+fi
+
+MKDIRCOMMAND="mkdir -pv"
+
+LOCAL_ROOT=${PWD}
+ROFI_HOME="${HOME}/.config/rofi"
+
+## DEBUG
+    LNCOMMAND="echo make link: ";MKDIRCOMMAND="echo create directory: "
+
+##[==========================================================================]##
+${MKDIRCOMMAND} "${ROFI_HOME}"
+${LNCOMMAND} "${LOCAL_ROOT}/awezaz.rasi" "${ROFI_HOME}/config.rasi"
+${LNCOMMAND} "${LOCAL_ROOT}/.rofi.conf" "${ROFI_HOME}/config"
+
