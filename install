@@ -4,7 +4,7 @@ LNCOMMAND="ln -vs"
 if [ "$(type -t lnsafe)" = "function" ]; then
     LNCOMMAND="lnsafe"
 else
-    echo "local lnsafe impl used."
+    echo "used fallback impl fo lnsafe." >&2
 fi
 
 CPCOMMAND="cp -v"
@@ -18,7 +18,7 @@ LOCAL_ROOT=${PWD}
 ROFI_HOME="${HOME}/.config/rofi"
 
 ## DEBUG
-    LNCOMMAND="echo make link: ";MKDIRCOMMAND="echo create directory: "
+    LNCOMMAND="echo make link: ";MKDIRCOMMAND="echo create directory: "; echo "dry-run: ENABLED"
 
 ##[==========================================================================]##
 ${MKDIRCOMMAND} "${ROFI_HOME}"
