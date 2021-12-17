@@ -11,8 +11,6 @@
    ========================================================================== */
 
 * {
-    width: 25%;
-
     /* awezaz dark colors */
     awezaz-bg0-soft:     #212017;
     awezaz-bg1:          #42372D;
@@ -68,6 +66,7 @@
 
 
 window {
+    width: 25%;
     background-color: @background;
     border:           2;
     padding:          2;
